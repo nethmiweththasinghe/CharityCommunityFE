@@ -1,0 +1,44 @@
+.mat-form-field {
+  font-family: Poppins;
+}
+
+.mat-dialog-title h1 {
+  font-weight: 500;
+  text-align: center;
+  color: #d03f96;
+  font-family: Poppins;
+}
+
+.here {
+  cursor: pointer;
+  text-align: center;
+  color: #d03f96;
+}
+
+.row {
+  display: flex;
+  gap: 50px;
+}
+
+.submit {
+  cursor: pointer;
+  font-family: Poppins;
+  color: white;
+  width: 80px;
+  height: 40px;
+  background: transparent linear-gradient(111deg, #7d6bdd 0%, #f951b6 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+.clear {
+  cursor: pointer;
+  font-family: Poppins;
+  color: white;
+  width: 80px;
+  height: 40px;
+  background: #bfbfc4;
+  border-radius: 5px;
+  opacity: 1;
+}

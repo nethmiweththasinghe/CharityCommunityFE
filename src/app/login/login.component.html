@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<div class="body">
+  <div *ngIf="!isLogin">
+    <form [formGroup]="userDataForm" (ngSubmit)="onFormSubmit()">
+      <div mat-dialog-content class="content">
+        
+        <button mat-icon-button style="float: right; margin: 1px" (click)="close()">
+          <mat-icon>close</mat-icon>
+        </button>
+        <div mat-dialog-title><h1>Sign Up</h1></div>
+  
+        <div class="row">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="First Name"
+              formControlName="firstName"
+              required/>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName" type="text" required/>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="User Name" formControlName="userName" type="text" required/>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" type="email" required/>
+          </mat-form-field>
+        </div>
+        <div class="row">        
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Password"
+              formControlName="password"
+              [type]="isShow ? 'text' : 'password'"
+              required>
+            <i (click)="hideShowPassword()" class="far {{eyeIcon}}" align="text-end" style="margin-left: -30px; cursor: pointer;"></i>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+              [type]="isShowC ? 'text' : 'password'"
+              required>
+            <i (click)="hideShowCPassword()" class="far {{eyeIconC}}" align="text-end" style="margin-left: -30px; cursor: pointer;"></i>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="NIC" formControlName="nic" required/>
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Contact Number"
+              formControlName="contactNo"
+              maxlength="10"
+              type="text" 
+              required
+            />
+          </mat-form-field>
+        </div>
+  
+        <h3 style="text-align: center" style="font-family: poppins; text-align: center;">
+          *Already have an account?
+          <span
+            class="here"
+            (click)="loginHere()"
+            >Login Here</span
+          >
+        </h3>
+      </div>
+  
+      <div mat-dialog-actions align="center">
+        <button
+          mat-raised-button
+          type="submit"
+          class="submit"
+        >
+          Create
+        </button>
+        <button
+          mat-raised-button
+          type="reset"
+          class="clear"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div *ngIf="isLogin">
+    <form [formGroup]="userLoginForm" (ngSubmit)="onLoginFormSubmit()">
+      <div mat-dialog-content class="content">
+      <button mat-icon-button style="float: right; margin: 1px" (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <div mat-dialog-title><h1>&nbsp;&nbsp;&nbsp;Login</h1></div>
+  
+      <br />
+      <p style="text-align: center">
+        <mat-form-field>
+          <input matInput placeholder="User Name" formControlName="userName"/>
+        </mat-form-field>
+      </p>
+      <p style="text-align: center">
+        <mat-form-field>
+          <input matInput [type]="isShow ? 'text' : 'password'" placeholder="Password" formControlName="password"/>
+          <i (click)="hideShowPassword()" class="far {{eyeIcon}}" align="text-end" style="margin-left: -30px; cursor: pointer;"></i>
+        </mat-form-field>
+      </p>
+  
+      <h3
+        (click)="signUpHere()"
+        class="here"
+      style="font-family: poppins;">
+        Sign Up Here
+      </h3>
+    </div>
+  
+    <mat-dialog-actions align="center">
+      <button
+        mat-raised-button
+        type="submit"
+        class="submit"
+      >
+        Login
+      </button>
+  
+      <button
+        mat-raised-button
+        type="reset"
+        class="clear"
+      >
+        Clear
+      </button>
+    </mat-dialog-actions>
+  </form>
+  </div>
+</div>

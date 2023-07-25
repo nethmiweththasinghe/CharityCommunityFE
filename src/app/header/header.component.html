@@ -1,0 +1,44 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+        <nav class="menu text-end">
+          <ul class="navi">
+            <!-- <img src="assets\Logo1.png" class="logo" alt="logo" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" align="left"> -->
+            <div class="logo"  routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" align="left">
+              <h3><b>Give Life</b></h3>
+            </div>
+            <li class="nav" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</li>
+            <li class="nav" routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</li>
+            <li class="nav" routerLink="/projects" routerLinkActive="active" ariaCurrentWhenActive="page">Projects</li>
+            <li class="nav" routerLink="/volunteer" routerLinkActive="active" ariaCurrentWhenActive="page">Become a Volunteer</li>
+            <li class="nav" routerLink="/donate" routerLinkActive="active" ariaCurrentWhenActive="page">Donate</li>
+            <li class="nav">
+              <div *ngIf="!log">
+                <mat-dialog-actions>
+                  <button mat-raised-button (click)="openLogin()">Login</button>
+                </mat-dialog-actions>
+              </div>
+              <div *ngIf="log" style="display: block;">
+                <div class="icon" (click)="openMenu()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16">
+                    <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z"/>
+                  </svg>
+                    <i class="bi bi-person-heart" (click)="userCheck()" style=" margin-left: 18px; margin-top: 0;"><br>{{name}}</i>
+                </div>
+                <div class="logDropDown" [class.menuClass]="menuVariable">
+                  <ul>
+                    <li routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="dropdownClick()">Profile</li>
+                    <li>Settings</li>
+                    <li>Logout</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- <router-outlet></router-outlet> -->

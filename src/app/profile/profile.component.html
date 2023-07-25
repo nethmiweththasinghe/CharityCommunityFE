@@ -1,0 +1,99 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+/>
+
+<form [formGroup]="userDataForm" (ngSubmit)="onFormSubmit()" align="center">
+  <div class="content">
+    <h1><b>Profile</b></h1>
+
+    <table align="center">
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>First Name</span>
+        </td>
+        <td style="align-items: end;">
+          <input
+            readonly="true"
+            type="text"
+            value="{{ userDetails.firstName }}"
+          />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>Last Name</span>
+        </td>
+        <td>
+          <input
+            readonly="true"
+            type="text"
+            value="{{ userDetails.lastName }}"
+          />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>User Name</span>
+        </td>
+        <td>
+          <input
+            readonly="true"
+            type="text"
+            value="{{ userDetails.userName }}"
+            formControlName="userName"
+          />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>Email</span>
+        </td>
+        <td>
+          <input readonly="true" type="email" value="{{ userDetails.email }}" />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>Password</span>
+        </td>
+        <td>
+          <input
+            [type]="isShow ? 'text' : 'password'"
+            value="{{ userDetails.password }}"
+            formControlName="password"
+          />
+          <i (click)="hideShowPassword()" class="far {{eyeIcon}}" style="margin-left: -30px; cursor: pointer;"></i>
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>NIC</span>
+        </td>
+        <td>
+          <input readonly="true" value="{{ userDetails.nic }}" />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td>
+          <span>Contact Number</span>
+        </td>
+        <td>
+          <input
+            type="text"
+            value="{{ userDetails.contactNo }}"
+            formControlName="contactNo"
+            maxlength="10"
+            minlength="10"
+          />
+        </td>
+      </tr>
+      <tr style="height: 50px; width: 100px;">
+        <td><button type="submit">Update</button>&nbsp;</td>
+        <td>
+          <button type="reset">Clear</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>

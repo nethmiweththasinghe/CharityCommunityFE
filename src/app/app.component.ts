@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'charityCommunity';
+export class AppComponent implements OnInit {
+  title = 'Charity Community';
+  
+  name: string = '';
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  userNamePass(event: string) {
+    this.name = event;
+  }
 }
