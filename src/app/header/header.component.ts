@@ -39,6 +39,10 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  logout() {
+    this.log = false;
+  }
+
   userCheck() {
 
   }

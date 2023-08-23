@@ -8,7 +8,7 @@ import { CharityService } from '../services/charity.service';
 })
 export class HomeComponent implements OnInit {
 
-  public emails: any;
+  // public emails: any;
 
   constructor(private charityService:CharityService) { }
 

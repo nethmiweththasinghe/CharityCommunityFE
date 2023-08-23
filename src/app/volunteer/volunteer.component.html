@@ -1,1 +1,64 @@
-<p>volunteer works!</p>
+<div class="body">
+  <div>
+    <h1 class="topic"><br>Become a volunteer</h1><br>
+    <form class="form" [formGroup]="volunteerDataForm" (ngSubmit)="Save()">
+      <span>
+        <!-- <span>Select the project</span><br /><br /> -->
+        <!-- <select>
+          <option>Education</option>
+          <option>Physical health</option>
+          <option>Mental health</option>
+          <option>Career</option>
+          <option>Food</option>
+          <option>Elders</option>
+        </select> -->
+
+        <mat-form-field class="row">
+          <mat-select placeholder="Select the project" formControlName="project">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let project of projects" [value]="project">{{project}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </span>
+      <br /><br>
+
+      <span>
+        <!-- <span>How can you help?</span><br /><br /> -->
+        <mat-form-field class="row">
+          <input
+            matInput
+            formControlName="first"
+            placeholder="How can you help?"
+            required/>
+        </mat-form-field>
+        <!-- <input type="text" name="help" /> -->
+      </span>
+
+      <br><br>
+      <span>
+        <!-- <span>Other</span><br /> -->
+        <mat-form-field class="row">
+          <input
+            matInput
+            formControlName="second"
+            placeholder="Other"
+            />
+        </mat-form-field>
+        <!-- <input type="text" name="other" /><br /> -->
+      </span>
+      <br /><br>
+
+      <span>
+        <button mat-raised-button>Save</button>
+      </span>
+    </form>
+    <div>
+      <img class="one" src="assets\dev.avif" />
+      <img class="two" src="assets\vol.jpeg" />
+    </div>
+  </div>
+</div>
+<div class="footer" style="position: relative;">
+  <app-footer></app-footer>
+</div>

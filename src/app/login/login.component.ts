@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
       this.charityService.addUserDetails(userDetails)
       .subscribe({
         next: (res) => {
-          alert('Hello '+ res.message);
+          // alert('Hello '+ res.message);
 
           this.dialogRef.close({data: res.message});
         },

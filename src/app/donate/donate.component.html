@@ -1,1 +1,39 @@
-<p>donate works!</p>
+<div align="center" class="body">
+    <h1 class="topic"><br>Donate Now</h1><br>
+    <!-- <p>
+        Select the project
+    </p> -->
+    <div>
+        <!-- <select>
+            <option>All</option>
+            <option>Education</option>
+            <option>Physical health</option>
+            <option>Mental health</option>
+            <option>Career</option>
+            <option>Food</option>
+            <option>Elders</option>
+        </select> -->
+
+        <mat-form-field style="text-align: center;">
+            <mat-select placeholder="Select the project">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let project of projects" [value]="project">{{project}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <br><br>
+
+    <h2>Donate Via Bank Transaction</h2>
+    <p>
+        Make a donation to:<br>
+        Bank: Bank of Ceylon<br>
+        Account Name: Give Life<br>
+        Account Number: ******633<br>
+        Branch: Ratnapura Branch<br>
+        Account Type: Current Account
+    </p>
+
+</div>
+<div class="footer" style="position: relative;">
+    <app-footer></app-footer>
+</div>

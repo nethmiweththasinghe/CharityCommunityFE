@@ -12,11 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: '', redirectTo: '/header', pathMatch: 'full' },
-  // { path: '', redirectTo: '/footer', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  // { path: 'header', component: HeaderComponent },
-  // { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'donate', component: DonateComponent },

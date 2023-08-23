@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
+  projects = [
+    'Education', 'Physical health', 'Mental health', 'Career', 'Food', 'Elders right ', 'Entreprenership', 'Womens right'
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

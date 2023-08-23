@@ -21,6 +21,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { UserDetails } from '../models/userDetails';
 import { Observable } from 'rxjs';
+import { Volunteers } from '../models/volunteers';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,11 @@ export class CharityService {
 
   updateUserDetails(userDetails: UserDetails): Observable<any> {
     return this.http.post("http://localhost:5094/api/User/UpdateUserDetails",userDetails);
+  }
+
+  addVolunteerDetails(volunteersDetails: Volunteers): Observable<any> {
+    console.log(volunteersDetails);
+    return this.http.post("http://localhost:5094/api/User/AddVolunteerDetails",volunteersDetails);
   }
 
 }
