@@ -1,7 +1,7 @@
 export interface Volunteers {
     id?: number;
-    userId?: number;
+    userId?: string;
     project?: string;
-    type?: string;
+    description?: string;
     other?: string;
 }

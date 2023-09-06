@@ -1,42 +1,44 @@
 <div class="body">
     
-    <p class="topic"><br>Projects</p>
+    <p class="topic"><br><br><br><br>Projects</p>
     
     <table border="0" align='center'>
         <tr>
             <td>
-                <img src="..\..\assets\edu.jpg"><br>
-                <b>Education</b>
+                <!-- <mat-dialog-actions> -->
+                    <img src="..\..\assets\edu.jpg" (click)="openPopup(1)"><br>
+                    <b>Education</b>
+                  <!-- </mat-dialog-actions> -->
             </td>
             <td>
-                <img src="..\..\assets\health.jpg"><br>
+                <img src="..\..\assets\health.jpg" (click)="openPopup(1)"><br>
                 <b>Health</b>
             </td>
             <td>
-                <img src="..\..\assets\Mhealth.jpeg"><br>
+                <img src="..\..\assets\Mhealth.jpeg" (click)="openPopup(2)"><br>
                 <b>Counselling</b>
             </td>
             <td>
-                <img src="..\..\assets\food.jpg"/><br>
+                <img src="..\..\assets\food.jpg" (click)="openPopup(3)"/><br>
                 <b>Food</b>
             </td>
         </tr>
         <tr>
             <td>
-                <img src="..\..\assets\job.jpg"><br>
+                <img src="..\..\assets\job.jpg" (click)="openPopup(4)"><br>
                 <b>Career</b>
             </td>
             <td>
-                <img src="..\..\assets\womens.jpg"><br>
+                <img src="..\..\assets\womens.jpg" (click)="openPopup(5)"><br>
                 <b>Women's right</b>
             </td>
             <td>
-                <img src="..\..\assets\job2.jpeg"><br>
+                <img src="..\..\assets\job2.jpeg" (click)="openPopup(6)"><br>
                 <b>Entrepreneurship</b>
             </td>
             <td>
-                <img src="..\..\assets\old.jpg"/><br>
-                <b>Elder</b>
+                <img src="..\..\assets\old.jpg" (click)="openPopup(7)"><br>
+                <b>Elder's right</b>
             </td>
         </tr>
     </table>

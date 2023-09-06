@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
   eyeIconC: string = "fa-eye-slash";
   username: string = '';
 
-  constructor(private charityService: CharityService, 
+  constructor(private charityService: CharityService,
               private _formBuilder: FormBuilder, 
               private dialogRef: MatDialogRef<LoginComponent>,
               @Inject(MAT_DIALOG_DATA) public data: string,) {
+              dialogRef.disableClose = true;
 
     this.userDataForm = this._formBuilder.group({
       firstName: [null, Validators.required],
@@ -66,8 +67,8 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           // alert('Hello '+ res.message);
-
-          this.dialogRef.close({data: res.message});
+          this.charityService.storeToken(res.token);
+          this.dialogRef.close({data: 'nethmiw'});
         },
         error: (err) => {
           alert(err?.error.message);
@@ -81,10 +82,13 @@ export class LoginComponent implements OnInit {
       this.charityService.authenticate(this.userLoginForm.value)
       .subscribe({
         next: (res) => {
-          alert('Welcome back '+ res.message);
-          this.dialogRef.close({data: res.message});
+          // alert('Welcome back '+ res.message);
+          // this.toast.success({detail:"SUCCESS", summary: res.message, duration: 5000});
+          this.charityService.storeToken(res.token);
+          this.dialogRef.close({data: 'nethmiw'});
         },
         error: (err) => {
+          // this.toast.error({detail:"ERROR", summary: "Something went wrong!", duration: 5000});
           alert(err.error.message);
         }
       })

@@ -1,7 +1,10 @@
 header {
-  padding: 10px;
-  margin-top: 20px;
-  /* background-color: #fdfdfe; */
+  padding: 55px;
+  margin: 0px;
+  width: -webkit-fill-available;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
 }
 
 .menu {
@@ -24,7 +27,7 @@ header {
   font-size: 20px;
   margin-left: 30px;
   font-family: Poppins;
-  z-index:1;
+  z-index: 1;
 }
 
 .menu .navi .nav:hover {
@@ -37,13 +40,11 @@ header {
   color: #3e3f42 !important;
 }
 
-.mat-dialog-actions button {
+button {
   cursor: pointer;
   color: white;
   width: 100px;
   height: 40px;
-  /* background: transparent linear-gradient(111deg, #7d6bdd 0%, #f951b6 100%) 0%
-    0% no-repeat padding-box; */
   background-color: rgb(199, 79, 89);
   border-radius: 5px;
   opacity: 1;
@@ -54,7 +55,7 @@ h3 {
   font-size: 30px;
   font-family: Poppins;
   margin-top: 1px;
-  margin-left: 20px;
+  margin-left: -40px;
   position: fixed;
   /* background-image: linear-gradient(to right, rgb(2, 2, 216), #4e419a,rgb(115, 55, 119), #f951b6, violet); */
   /* background-image: linear-gradient(to right, rgb(98, 63, 21), rgb(132, 102, 65),rgb(194, 152, 101), rgb(203, 182, 156)); */
@@ -69,7 +70,7 @@ h3:hover {
   cursor: pointer;
 }
 
-.logDropDown {
+/* .logDropDown {
   background-color: rgb(236, 227, 227);
   color: #74767e;
   position: fixed;
@@ -78,16 +79,16 @@ h3:hover {
   width: 140px;
   height: 130px;
   transition: 0.4s ease-in-out;
-}
+} */
 
-.logDropDown li {
+/* .logDropDown li {
   font-size: 15px;
   display: block;
   text-align: center;
   margin: 0;
   padding: 10px 10px 10px 10px;
   border-bottom: 1px solid rgb(227, 222, 208);
-}
+} */
 
 .icon {
   color: rgb(199, 79, 89);

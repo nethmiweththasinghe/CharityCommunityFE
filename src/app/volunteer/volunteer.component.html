@@ -1,6 +1,6 @@
 <div class="body">
   <div>
-    <h1 class="topic"><br>Become a volunteer</h1><br>
+    <h1 class="topic"><br><br><br><br>Become a volunteer</h1><br>
     <form class="form" [formGroup]="volunteerDataForm" (ngSubmit)="Save()">
       <span>
         <!-- <span>Select the project</span><br /><br /> -->
@@ -28,7 +28,7 @@
         <mat-form-field class="row">
           <input
             matInput
-            formControlName="first"
+            formControlName="description"
             placeholder="How can you help?"
             required/>
         </mat-form-field>
@@ -41,7 +41,7 @@
         <mat-form-field class="row">
           <input
             matInput
-            formControlName="second"
+            formControlName="other"
             placeholder="Other"
             />
         </mat-form-field>

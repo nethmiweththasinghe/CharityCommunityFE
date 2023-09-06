@@ -1,5 +1,5 @@
 export interface UserDetails {
-    id?: number;
+    id?: string;
     firstName?: string;
     lastName?: string;
     userName?: string;
@@ -8,4 +8,5 @@ export interface UserDetails {
     confirmPassword?: string;
     nic?: string;
     contactNo?: string;
+    token?: string;
 }

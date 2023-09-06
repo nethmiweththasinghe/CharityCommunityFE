@@ -27,8 +27,8 @@ export class VolunteerComponent implements OnInit {
     private _formBuilder: FormBuilder) {
     this.volunteerDataForm = _formBuilder.group({
       project: [null, Validators.required],
-      first: [null, Validators.required],
-      second: [null, Validators.required],
+      description: [null, Validators.required],
+      other: [null, Validators.required],
     });
   }
 

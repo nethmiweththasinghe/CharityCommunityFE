@@ -24,7 +24,7 @@ button {
 
 .topic {
   /* text-align: center; */
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-right: 250px;
   text-align: end;
   font-family: Poppins;
@@ -53,7 +53,7 @@ button {
 }
 
 .one {
-  margin-top: -280px;
+  margin-top: -300px;
   margin-left: 150px;
   width: 236px;
   height: 236px;
@@ -61,7 +61,7 @@ button {
   position: absolute;
 }
 .two {
-  margin-top: -230px;
+  margin-top: -250px;
   margin-left: 300px;
   width: 236px;
   height: 236px;

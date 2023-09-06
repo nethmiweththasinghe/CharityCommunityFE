@@ -7,8 +7,8 @@ import { DonateComponent } from './donate/donate.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ProfileComponent } from './profile/profile.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { ProjectsPopupComponent } from './projects/projects.popup/projects.popup.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'donate', component: DonateComponent },
   { path: 'volunteer', component: VolunteerComponent },
   { path: 'chatBot', component: ChatBotComponent },
-  { path: 'profile', component: ProfileComponent, data: {name: 'some value'} },
+  // { path: 'projectsPopup', component: ProjectsPopupComponent, canActivate:[AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({

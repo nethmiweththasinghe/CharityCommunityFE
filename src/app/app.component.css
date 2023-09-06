@@ -1,5 +1,4 @@
-/* .mainpage img {
-    width: 1277px;
-    height: 550px;
-
-} */
+.mainpage {
+    height: 100%;
+    margin-top: -30px;
+}

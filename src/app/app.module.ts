@@ -22,6 +22,7 @@ import { VolunteerComponent } from './volunteer/volunteer.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule} from '@angular/material/select';
+import { ProjectsPopupComponent } from './projects/projects.popup/projects.popup.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatSelectModule} from '@angular/material/select';
     ProjectsComponent,
     VolunteerComponent,
     ChatBotComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProjectsPopupComponent
   ],
   imports: [
     BrowserModule,
