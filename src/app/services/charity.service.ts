@@ -4,6 +4,7 @@ import { UserDetails } from '../models/userDetails';
 import { Observable } from 'rxjs';
 import { Volunteers } from '../models/volunteers';
 import { ProjectDetails } from '../models/projectDetails';
+import { DonateDetails } from '../models/donateDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,12 @@ export class CharityService {
   // Get project deatils
   getProjectDetails(projectId: number): Observable<ProjectDetails> {
     return this.http.get(`http://localhost:5094/api/User/GetProjectDetails/${projectId}`);
+  }
+
+   // Add volunteers
+   addDonationDetails(donateDetails: DonateDetails): Observable<any> {
+    console.log(donateDetails);
+    return this.http.post("http://localhost:5094/api/User/AddDonationDetails",donateDetails);
   }
 
 }

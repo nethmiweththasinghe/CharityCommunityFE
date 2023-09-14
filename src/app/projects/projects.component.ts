@@ -9,6 +9,8 @@ import { ProjectsPopupComponent } from './projects.popup/projects.popup.componen
 })
 export class ProjectsComponent implements OnInit {
 
+  search : String ="";
+
   constructor(private matDialog:MatDialog) { }
 
   ngOnInit(): void {

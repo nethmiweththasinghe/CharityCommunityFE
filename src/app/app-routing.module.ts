@@ -9,6 +9,7 @@ import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProjectsPopupComponent } from './projects/projects.popup/projects.popup.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ViewDonorsComponent } from './donate/view-donors/view-donors.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'chatBot', component: ChatBotComponent },
   // { path: 'projectsPopup', component: ProjectsPopupComponent, canActivate:[AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
+  { path: 'donors', component: ViewDonorsComponent },
+
 ];
 
 @NgModule({

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CharityService } from '../services/charity.service';
 import { Volunteers } from '../models/volunteers';
+import { MatDialog } from '@angular/material/dialog';
+import { VolunteerPopupComponent } from './volunteer-popup/volunteer-popup.component';
 
 @Component({
   selector: 'app-volunteer',
@@ -23,6 +25,7 @@ export class VolunteerComponent implements OnInit {
   ];
 
   constructor(
+    private matDialog:MatDialog,
     private charityService: CharityService,
     private _formBuilder: FormBuilder) {
     this.volunteerDataForm = _formBuilder.group({
@@ -42,12 +45,25 @@ export class VolunteerComponent implements OnInit {
       this.charityService.addVolunteerDetails(volunteersDetails)
       .subscribe({
         next: (res) => {
-          alert("Thanks for volunteering!")
+          this.openPopup();
         },
         error: (err) => {
-          alert(err?.error.message);
+          this.openPopup();
+          // alert(err?.error.message);
         }
       })
     }
+  }
+
+  openPopup() {
+    let dialogRef = this.matDialog.open(VolunteerPopupComponent,{
+      disableClose: true,
+      width: '380px',
+      height: '150px',
+    })
+  
+    dialogRef.afterClosed().subscribe(res => {
+      this.volunteerDataForm.reset();
+    })
   }
 }

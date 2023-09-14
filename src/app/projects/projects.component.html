@@ -1,49 +1,77 @@
 <div class="body">
-    
-    <p class="topic"><br><br><br><br>Projects</p>
-    
-    <table border="0" align='center'>
-        <tr>
-            <td>
-                <!-- <mat-dialog-actions> -->
-                    <img src="..\..\assets\edu.jpg" (click)="openPopup(1)"><br>
-                    <b>Education</b>
-                  <!-- </mat-dialog-actions> -->
-            </td>
-            <td>
-                <img src="..\..\assets\health.jpg" (click)="openPopup(1)"><br>
-                <b>Health</b>
-            </td>
-            <td>
-                <img src="..\..\assets\Mhealth.jpeg" (click)="openPopup(2)"><br>
-                <b>Counselling</b>
-            </td>
-            <td>
-                <img src="..\..\assets\food.jpg" (click)="openPopup(3)"/><br>
-                <b>Food</b>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="..\..\assets\job.jpg" (click)="openPopup(4)"><br>
-                <b>Career</b>
-            </td>
-            <td>
-                <img src="..\..\assets\womens.jpg" (click)="openPopup(5)"><br>
-                <b>Women's right</b>
-            </td>
-            <td>
-                <img src="..\..\assets\job2.jpeg" (click)="openPopup(6)"><br>
-                <b>Entrepreneurship</b>
-            </td>
-            <td>
-                <img src="..\..\assets\old.jpg" (click)="openPopup(7)"><br>
-                <b>Elder's right</b>
-            </td>
-        </tr>
-    </table>
+  <p class="topic"><br /><br /><br /><br />Projects</p>
+
+  <span class="filter">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <i class="fa fa-filter"></i> &nbsp; <input type="checkbox" /> Liked &nbsp;
+    <input type="checkbox" /> Emotional &nbsp;
+    <input type="checkbox" /> Informational &nbsp;
+    <input type="checkbox" /> Practical
+
+    <!-- <mat-form-field style="margin-right: 10px;">
+      <input type="text" matInput placeholder="Search">
+      <mat-icon >search</mat-icon>
+      </mat-form-field> -->
+  </span>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <span matPrefix> </span>
+      <input
+        type="tel"
+        matInput
+        placeholder="Search"
+        name="search"
+        [(ngModel)]="search"
+      />
+      <button matSuffix mat-button><mat-icon>search</mat-icon></button>
+    </mat-form-field>
+  </form>
+
+  <table border="0" align="center">
+    <tr>
+      <td>
+        <!-- <mat-dialog-actions> -->
+        <img src="..\..\assets\edu.jpg" (click)="openPopup(1)" /><br />
+        <b>Education</b>
+        <!-- </mat-dialog-actions> -->
+      </td>
+      <td>
+        <img src="..\..\assets\health.jpg" (click)="openPopup(1)" /><br />
+        <b>Health</b>
+      </td>
+      <td>
+        <img src="..\..\assets\Mhealth.jpeg" (click)="openPopup(2)" /><br />
+        <b>Counselling</b>
+      </td>
+      <td>
+        <img src="..\..\assets\food.jpg" (click)="openPopup(3)" /><br />
+        <b>Food</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="..\..\assets\job.jpg" (click)="openPopup(4)" /><br />
+        <b>Career</b>
+      </td>
+      <td>
+        <img src="..\..\assets\womens.jpg" (click)="openPopup(5)" /><br />
+        <b>Women's right</b>
+      </td>
+      <td>
+        <img src="..\..\assets\job2.jpeg" (click)="openPopup(6)" /><br />
+        <b>Entrepreneurship</b>
+      </td>
+      <td>
+        <img src="..\..\assets\old.jpg" (click)="openPopup(7)" /><br />
+        <b>Elder's right</b>
+      </td>
+    </tr>
+  </table>
 </div>
 
-<div class="footer" style="position: relative;">
-    <app-footer></app-footer>
+<div class="footer" style="position: relative">
+  <app-footer></app-footer>
 </div>

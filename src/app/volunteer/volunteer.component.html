@@ -1,7 +1,6 @@
 <div class="body">
-  <div>
     <h1 class="topic"><br><br><br><br>Become a volunteer</h1><br>
-    <form class="form" [formGroup]="volunteerDataForm" (ngSubmit)="Save()">
+    <form class="form" [formGroup]="volunteerDataForm">
       <span>
         <!-- <span>Select the project</span><br /><br /> -->
         <!-- <select>
@@ -50,14 +49,13 @@
       <br /><br>
 
       <span>
-        <button mat-raised-button>Save</button>
+        <button mat-raised-button (click)="Save()">Save</button>
       </span>
     </form>
     <div>
       <img class="one" src="assets\dev.avif" />
       <img class="two" src="assets\vol.jpeg" />
     </div>
-  </div>
 </div>
 <div class="footer" style="position: relative;">
   <app-footer></app-footer>
