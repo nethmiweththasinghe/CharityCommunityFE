@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CharityService } from '../services/charity.service';
-import { Volunteers } from '../models/volunteers';
+import { Volunteer } from '../models/volunteers';
 import { MatDialog } from '@angular/material/dialog';
 import { VolunteerPopupComponent } from './volunteer-popup/volunteer-popup.component';
 
@@ -40,7 +40,7 @@ export class VolunteerComponent implements OnInit {
 
   Save() {
     if(this.volunteerDataForm.valid) {
-      let volunteersDetails: Volunteers = this.volunteerDataForm.value;
+      let volunteersDetails: Volunteer = this.volunteerDataForm.value;
 
       this.charityService.addVolunteerDetails(volunteersDetails)
       .subscribe({

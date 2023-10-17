@@ -19,7 +19,6 @@ import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule} from '@angular/material/select';
 import { ProjectsPopupComponent } from './projects/projects.popup/projects.popup.component';
@@ -38,7 +37,6 @@ import { ViewDonorsComponent } from './donate/view-donors/view-donors.component'
     DonateComponent,
     ProjectsComponent,
     VolunteerComponent,
-    ChatBotComponent,
     ProfileComponent,
     ProjectsPopupComponent,
     VolunteerPopupComponent,

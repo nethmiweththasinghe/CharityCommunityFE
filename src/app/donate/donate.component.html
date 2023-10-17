@@ -24,13 +24,13 @@
         <tr>
           <td>
             <span>
-              <button mat-raised-button class="amountBtn">LKR 1000</button
+              <button mat-raised-button class="amountBtn" (click)="autoFill1(1000)">LKR 1000</button
               >&nbsp;
-              <button mat-raised-button class="amountBtn">LKR 2000</button
+              <button mat-raised-button class="amountBtn" (click)="autoFill1(2000)">LKR 2000</button
               >&nbsp;
-              <button mat-raised-button class="amountBtn">LKR 5000</button
+              <button mat-raised-button class="amountBtn" (click)="autoFill1(5000)">LKR 5000</button
               >&nbsp;
-              <button mat-raised-button class="amountBtn">LKR 10000</button>
+              <button mat-raised-button class="amountBtn" (click)="autoFill1(10000)">LKR 10000</button>
             </span>
           </td>
         </tr>
@@ -50,9 +50,8 @@
         <tr>
           <td>
             <span>
-              <input type="checkbox" />
-              I would like to receive email updates from GiveLife about future
-              work.
+              <input type="checkbox" required/>
+              I would like to receive email updates from GiveLife about future work.
             </span>
           </td>
         </tr>
@@ -143,7 +142,8 @@
     <tr>
       <td>
         <span>
-          <button mat-raised-button class="donorsBtn" routerLink="/donors" routerLinkActive="active" ariaCurrentWhenActive="page">View Donors</button>
+          <button mat-raised-button class="donorsBtn" routerLink="/viewDonors" routerLinkActive="active" 
+          ariaCurrentWhenActive="page">View Donors</button>
         </span>
       </td>
     </tr>

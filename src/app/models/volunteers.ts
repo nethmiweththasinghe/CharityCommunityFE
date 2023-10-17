@@ -1,5 +1,5 @@
-export interface Volunteers {
-    id?: number;
+export interface Volunteer {
+    id?: string;
     userId?: string;
     project?: string;
     description?: string;

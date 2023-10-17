@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DonateDetails } from '../models/donateDetails';
+import { Donors } from '../models/donors';
 import { CharityService } from '../services/charity.service';
 import { DonationPopupComponent } from './donation-popup/donation-popup.component';
 
@@ -13,6 +13,7 @@ import { DonationPopupComponent } from './donation-popup/donation-popup.componen
 export class DonateComponent implements OnInit {
 
   donateDataForm: FormGroup;
+  donateBtn: boolean = true;
 
   projects = [
     'Education', 'Physical health', 'Mental health', 'Career', 'Food', 'Elders right ', 'Entreprenership', 'Womens right'
@@ -32,17 +33,18 @@ export class DonateComponent implements OnInit {
 
   Save() {
     if(this.donateDataForm.valid) {
-      let donoationDetails: DonateDetails = this.donateDataForm.value;
+      let donoationDetails: Donors = this.donateDataForm.value;
 
-      this.charityService.addDonationDetails(donoationDetails)
-      .subscribe({
-        next: (res) => {
+      this.charityService.addDonorDetails(donoationDetails).subscribe( res => {
+        if(res == true){
           this.openPopup();
-        },
-        error: (err) => {
-          this.openPopup();
-          // alert(err?.error.message);
         }
+      //   next: (res) => {
+      //     this.openPopup();
+      //   },
+      //   error: (err) => {
+      //     // alert(err?.error.message);
+      //   }
       })
     }
   }
@@ -55,8 +57,12 @@ export class DonateComponent implements OnInit {
     })
   
     dialogRef.afterClosed().subscribe(res => {
-      // this.volunteerDataForm.reset();
+      this.donateDataForm.reset();
     })
   }
+
+  autoFill1(v1: number){
+    this.donateDataForm.controls['amount'].setValue(v1);
+}
 
 }

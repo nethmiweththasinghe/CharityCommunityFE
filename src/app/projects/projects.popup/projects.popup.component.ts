@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { CharityService } from 'src/app/services/charity.service';
 import { ProjectDetails } from 'src/app/models/projectDetails';
+import { Volunteer } from 'src/app/models/volunteers';
 
 @Component({
   selector: 'app-projects.popup',
@@ -11,19 +12,20 @@ import { ProjectDetails } from 'src/app/models/projectDetails';
 })
 export class ProjectsPopupComponent implements OnInit {
   
-  projectId: number | undefined;
+  projectId: string = "";
   projectDetails: ProjectDetails = {};
+  volunteers: Volunteer[] = [];
 
   constructor(
     private charityService: CharityService,
     private dialogRef: MatDialogRef<ProjectsPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { title : number }
+    @Inject(MAT_DIALOG_DATA) public data: { title : string }
   ) {
     dialogRef.disableClose = true;
   }
 
   ngOnInit(): void {
-    this.getProjectDetails();
+    this.getVolunteerDetails();
   }
 
   close() {
@@ -34,8 +36,15 @@ export class ProjectsPopupComponent implements OnInit {
     this.projectId = this.data.title;
 
     this.charityService.getProjectDetails(this.projectId).subscribe(data =>{
-      this.projectDetails = data
-      console.log(this.projectDetails);
+      this.projectDetails = data;
+      
+    })
+  }
+
+  getVolunteerDetails(): void {
+    this.projectId = this.data.title;
+    this.charityService.getVolunteerDetails(this.projectId).subscribe(data => {
+      // this.volunteers = data;
       
     })
   }

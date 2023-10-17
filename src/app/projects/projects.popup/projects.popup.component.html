@@ -5,10 +5,10 @@
     <p class="title">{{projectDetails.name}}</p>
     <p style="text-align: justify;">{{projectDetails.description}}</p>
 
-    <table border="1">
+    <table border="1" *ngFor="let volunteer of volunteers">
         <tr>
             <th>No</th>
-            <th>Name</th>
+            <th>{{volunteer.project}}</th>
             <th>Description</th>
             <th>Email</th>
         </tr>

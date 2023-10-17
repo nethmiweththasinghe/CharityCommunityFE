@@ -1,5 +1,38 @@
+<div class="body">
+    <br><br><br><br><br><br><br><br><br><br>
+    <p align="center">Have you donated to Give Life? <br> donate and inspire others to join!</p>
 
-<div>
-    <p>Have you donated to Give Life? <br> donate and inspire others to join!</p>
+    <div class="tbl" align="center">
+        <table border="0">
+            <tr>
+                <td>
+                    <table *ngFor="let donor of donateDetails">
+                        <tr>
+                            <td>Image</td>
+                            <td>{{donor.id}}</td>
+                            <td>{{donor.project}}</td>
+                            <td>{{donor.amount}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Image</td>
+                            <td>Weththasinghe</td>
+                            <td>Education</td>
+                            <td>LKR 1000</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 </div>
+
+
+<div class="footer" style="position: relative">
+    <app-footer></app-footer>
+</div>
+  <router-outlet></router-outlet>

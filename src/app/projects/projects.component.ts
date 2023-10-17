@@ -16,13 +16,13 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openPopup(projectId : number) {
+  openPopup(project : string) {
     let dialogRef = this.matDialog.open(ProjectsPopupComponent,{
       disableClose: true,
       width: '700px',
       height: '580px',
       data: {
-        title: projectId
+        title: project
       }
     })
   

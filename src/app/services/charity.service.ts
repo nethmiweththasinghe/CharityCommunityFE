@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { UserDetails } from '../models/userDetails';
 import { Observable } from 'rxjs';
-import { Volunteers } from '../models/volunteers';
+import { Volunteer } from '../models/volunteers';
 import { ProjectDetails } from '../models/projectDetails';
-import { DonateDetails } from '../models/donateDetails';
+import { Donors } from '../models/donors';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharityService {
-
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Sign Up
   addUserDetails(userDetails: UserDetails): Observable<any> {
-    return this.http.post("http://localhost:5094/api/User/AddUserDetails",userDetails);
+    return this.http.post(
+      'http://localhost:5094/api/User/AddUserDetails',
+      userDetails
+    );
   }
 
   // Login
   authenticate(userDetails: UserDetails): Observable<any> {
-    return this.http.post("http://localhost:5094/api/User/authenticate",userDetails);
+    return this.http.post(
+      'http://localhost:5094/api/User/authenticate',
+      userDetails
+    );
   }
 
   storeToken(tokenValue: string) {
-    localStorage.setItem('token',tokenValue)
+    localStorage.setItem('token', tokenValue);
   }
 
   getToken() {
@@ -36,39 +41,57 @@ export class CharityService {
   }
 
   logout() {
-    localStorage.clear()
+    localStorage.clear();
   }
-
-
-
-  
-
 
   // Get user deatils
   getUserDetails(userName: string): Observable<UserDetails> {
-    return this.http.get(`http://localhost:5094/api/User/GetUserDetails/${userName}`);
+    return this.http.get(
+      `http://localhost:5094/api/User/GetUserDetails/${userName}`
+    );
   }
 
   // Update user
   updateUserDetails(userDetails: UserDetails): Observable<any> {
-    return this.http.post("http://localhost:5094/api/User/UpdateUserDetails",userDetails);
+    return this.http.post(
+      'http://localhost:5094/api/User/UpdateUserDetails',
+      userDetails
+    );
   }
 
-  // Add volunteers
-  addVolunteerDetails(volunteersDetails: Volunteers): Observable<any> {
-    console.log(volunteersDetails);
-    return this.http.post("http://localhost:5094/api/User/AddVolunteerDetails",volunteersDetails);
+  // Add Volunteers
+  addVolunteerDetails(volunteer: Volunteer): Observable<any> {
+    return this.http.post(
+      'http://localhost:8080/api/user/addVolunteerDetails',
+      volunteer
+    );
+  }
+
+  // Get volunteers
+  getVolunteerDetails(project: string): Observable<Volunteer> {
+    return this.http.get(
+      `http://localhost:8080/api/user/getVolunteersByProjectId/${project}`
+    );
+  }
+
+  // Add Donations
+  addDonorDetails(Donors: Donors): Observable<any> {
+    return this.http.post(
+      'http://localhost:8080/api/user/addDonorDetails',Donors
+    );
+  }
+
+  // Get volunteers
+  getDonors(): Observable<Donors> {
+    return this.http.get(
+      `http://localhost:8080/api/user/getDonors`
+    );
   }
 
   // Get project deatils
-  getProjectDetails(projectId: number): Observable<ProjectDetails> {
-    return this.http.get(`http://localhost:5094/api/User/GetProjectDetails/${projectId}`);
+  getProjectDetails(project: string): Observable<ProjectDetails> {
+    return this.http.get(
+      `http://localhost:5094/api/User/GetProjectDetails/${project}`
+    );
   }
-
-   // Add volunteers
-   addDonationDetails(donateDetails: DonateDetails): Observable<any> {
-    console.log(donateDetails);
-    return this.http.post("http://localhost:5094/api/User/AddDonationDetails",donateDetails);
-  }
-
 }
