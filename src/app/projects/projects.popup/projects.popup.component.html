@@ -2,21 +2,29 @@
     <button mat-icon-button style="float: right; margin: 1px" (click)="close()">
         <mat-icon>close</mat-icon>
       </button>
-    <p class="title">{{projectDetails.name}}</p>
+    <p class="title">{{projectId}}</p>
     <p style="text-align: justify;">{{projectDetails.description}}</p>
 
-    <table border="1" *ngFor="let volunteer of volunteers">
+    <table>
         <tr>
             <th>No</th>
-            <th>{{volunteer.project}}</th>
+            <th>Name</th>
             <th>Description</th>
-            <th>Email</th>
+            <th>Date & Time</th>
+            <th></th>
         </tr>
-        <tr>
-            <td>01</td>
-            <td>Nethmi</td>
-            <td>husgysnjk</td>
-            <td>nethmi@gmail.com</td>
+        <tr *ngFor="let volunteer of volunteers; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{volunteer.userId}}</td>
+            <td>{{volunteer.description}}</td>
+            <td>{{volunteer.other}}</td>
+            <td class="icon" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="2em" fill="currentColor" viewBox="0 0 512 512" style="cursor: pointer;">
+                    <path d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"/></svg>
+            </td>
         </tr>
     </table>
+
+    <br><br>
+    <button class="button" (click)="close()" mat-raised-button routerLink="/volunteer" routerLinkActive="active">Become a volunteer</button>
 </div>

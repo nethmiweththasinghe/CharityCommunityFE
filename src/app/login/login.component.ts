@@ -66,9 +66,9 @@ export class LoginComponent implements OnInit {
       this.charityService.addUserDetails(userDetails)
       .subscribe({
         next: (res) => {
-          // alert('Hello '+ res.message);
           this.charityService.storeToken(res.token);
-          this.dialogRef.close({data: 'nethmiw'});
+          this.charityService.storeData(res.data.userName);
+          this.dialogRef.close({data: res.data.userName});
         },
         error: (err) => {
           alert(err?.error.message);
@@ -85,7 +85,8 @@ export class LoginComponent implements OnInit {
           // alert('Welcome back '+ res.message);
           // this.toast.success({detail:"SUCCESS", summary: res.message, duration: 5000});
           this.charityService.storeToken(res.token);
-          this.dialogRef.close({data: 'nethmiw'});
+          this.charityService.storeData(res.data.userName);
+          this.dialogRef.close({data: res.data.userName});
         },
         error: (err) => {
           // this.toast.error({detail:"ERROR", summary: "Something went wrong!", duration: 5000});

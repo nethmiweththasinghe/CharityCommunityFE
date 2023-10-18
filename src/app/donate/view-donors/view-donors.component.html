@@ -6,22 +6,31 @@
         <table border="0">
             <tr>
                 <td>
-                    <table *ngFor="let donor of donateDetails">
-                        <tr>
-                            <td>Image</td>
-                            <td>{{donor.id}}</td>
+                    <table>
+                        <tr *ngFor="let donor of leftDonors">
+                            <td class="icon">
+                                &nbsp; &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16" routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">
+                                    <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z"/>
+                                  </svg>
+                            </td>
+                            <td>{{donor.userId}}</td>
                             <td>{{donor.project}}</td>
                             <td>{{donor.amount}}</td>
                         </tr>
                     </table>
                 </td>
+                <td style="width: 10px; background-color: white;"></td>
                 <td>
                     <table>
-                        <tr>
-                            <td>Image</td>
-                            <td>Weththasinghe</td>
-                            <td>Education</td>
-                            <td>LKR 1000</td>
+                        <tr *ngFor="let donor of rightDonors">
+                            <td class="icon">
+                                &nbsp; &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16" routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">
+                                    <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z"/>
+                                  </svg>
+                            </td>
+                            <td>{{donor.userId}}</td>
+                            <td>{{donor.project}}</td>
+                            <td>{{donor.amount}}</td>
                         </tr>
                     </table>
                 </td>

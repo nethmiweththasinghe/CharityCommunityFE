@@ -9,7 +9,9 @@ import { CharityService } from 'src/app/services/charity.service';
 })
 export class ViewDonorsComponent {
 
-  public donateDetails: Donors[] = []; 
+  public donateDetails: any; 
+  public leftDonors: any; 
+  public rightDonors: any; 
 
   constructor(private charityService: CharityService){}
 
@@ -20,20 +22,9 @@ export class ViewDonorsComponent {
   getDonors() {
     this.charityService.getDonors().subscribe( data => {
 
-      // this.donateDetails.push(data);
-      
-      // this.donateDetails.forEach(element => {
-      //   let donors: Donors = {
-      //     id: data.id,
-      //     project: data.project,
-      //     amount: data.amount,
-      //     createdDate: data.createdDate
-      //   }
-        
-        console.log(data);
-      // });
-
-      
+      this.donateDetails = data;
+      this.leftDonors = this.donateDetails.filter((element: any, index: number) => index % 2 === 0);
+      this.rightDonors = this.donateDetails.filter((element: any, index: number) => index % 2 === 1);
     })
   }
 }

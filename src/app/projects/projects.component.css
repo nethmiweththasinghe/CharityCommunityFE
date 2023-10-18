@@ -15,6 +15,7 @@ td img {
   border-radius: 5px;
   cursor: pointer;
   opacity: 1;
+  box-shadow: 10px 10px 5px rgb(214, 215, 216);
 }
 
 .topic {

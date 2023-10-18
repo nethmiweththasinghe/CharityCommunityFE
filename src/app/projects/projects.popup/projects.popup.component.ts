@@ -14,7 +14,8 @@ export class ProjectsPopupComponent implements OnInit {
   
   projectId: string = "";
   projectDetails: ProjectDetails = {};
-  volunteers: Volunteer[] = [];
+  volunteers: any;
+  row: number = 0;
 
   constructor(
     private charityService: CharityService,
@@ -37,15 +38,15 @@ export class ProjectsPopupComponent implements OnInit {
 
     this.charityService.getProjectDetails(this.projectId).subscribe(data =>{
       this.projectDetails = data;
-      
     })
   }
 
   getVolunteerDetails(): void {
     this.projectId = this.data.title;
+
     this.charityService.getVolunteerDetails(this.projectId).subscribe(data => {
-      // this.volunteers = data;
-      
+      this.volunteers = data;
     })
+    
   }
 }

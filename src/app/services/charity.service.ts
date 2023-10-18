@@ -28,12 +28,20 @@ export class CharityService {
     );
   }
 
+  storeData(userName: string) {
+    localStorage.setItem('data', userName);
+  }
+
   storeToken(tokenValue: string) {
     localStorage.setItem('token', tokenValue);
   }
 
   getToken() {
     localStorage.getItem('token');
+  }
+
+  getData() {
+    localStorage.getItem('data');
   }
 
   isLoggedIn(): boolean {
@@ -77,15 +85,14 @@ export class CharityService {
   // Add Donations
   addDonorDetails(Donors: Donors): Observable<any> {
     return this.http.post(
-      'http://localhost:8080/api/user/addDonorDetails',Donors
+      'http://localhost:8080/api/user/addDonorDetails',
+      Donors
     );
   }
 
   // Get volunteers
   getDonors(): Observable<Donors> {
-    return this.http.get(
-      `http://localhost:8080/api/user/getDonors`
-    );
+    return this.http.get(`http://localhost:8080/api/user/getDonors`);
   }
 
   // Get project deatils

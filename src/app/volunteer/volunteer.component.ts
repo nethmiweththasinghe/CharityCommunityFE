@@ -4,6 +4,7 @@ import { CharityService } from '../services/charity.service';
 import { Volunteer } from '../models/volunteers';
 import { MatDialog } from '@angular/material/dialog';
 import { VolunteerPopupComponent } from './volunteer-popup/volunteer-popup.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-volunteer',
@@ -12,7 +13,7 @@ import { VolunteerPopupComponent } from './volunteer-popup/volunteer-popup.compo
 })
 export class VolunteerComponent implements OnInit {
   volunteerDataForm: FormGroup;
-  
+
   projects = [
     'Education',
     'Physical health',
@@ -25,9 +26,10 @@ export class VolunteerComponent implements OnInit {
   ];
 
   constructor(
-    private matDialog:MatDialog,
+    private matDialog: MatDialog,
     private charityService: CharityService,
-    private _formBuilder: FormBuilder) {
+    private _formBuilder: FormBuilder
+  ) {
     this.volunteerDataForm = _formBuilder.group({
       project: [null, Validators.required],
       description: [null, Validators.required],
@@ -37,33 +39,45 @@ export class VolunteerComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
   Save() {
-    if(this.volunteerDataForm.valid) {
-      let volunteersDetails: Volunteer = this.volunteerDataForm.value;
+    let logIn: boolean = this.charityService.isLoggedIn();
 
-      this.charityService.addVolunteerDetails(volunteersDetails)
-      .subscribe({
-        next: (res) => {
-          this.openPopup();
-        },
-        error: (err) => {
-          this.openPopup();
-          // alert(err?.error.message);
+    if (logIn) {
+      if (this.volunteerDataForm.valid) {
+        const result = localStorage.getItem('data');
+        let volunteersDetails: Volunteer = this.volunteerDataForm.value;
+        if (result !== undefined) {
+          volunteersDetails.userId = result?.toString();
+          volunteersDetails.createdDate = new Date();
         }
-      })
+
+        this.charityService.addVolunteerDetails(volunteersDetails).subscribe({
+          next: (res) => {
+            this.openPopup();
+          },
+          error: (err) => {
+            this.openPopup();
+          },
+        });
+      }
+    } else {
+      let dialogRef = this.matDialog.open(LoginComponent, {
+        disableClose: true,
+        width: '500px',
+        height: '420px',
+      });
     }
   }
 
   openPopup() {
-    let dialogRef = this.matDialog.open(VolunteerPopupComponent,{
+    let dialogRef = this.matDialog.open(VolunteerPopupComponent, {
       disableClose: true,
       width: '380px',
       height: '150px',
-    })
-  
-    dialogRef.afterClosed().subscribe(res => {
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
       this.volunteerDataForm.reset();
-    })
+    });
   }
 }
